@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacific Chaos — Onboarding</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lime: #b8ff3c;
+    --black: #0a0a0a;
+    --gray-dark: #111111;
+    --gray-mid: #1a1a1a;
+    --gray-border: #2a2a2a;
+    --gray-text: #888;
+    --white: #f0f0f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Archivo', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar-wrap {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gray-border);
+    z-index: 200;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--lime);
+    transition: width 0.5s ease;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--gray-border);
+    background: var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+
+  .step-indicator {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--gray-text);
+    letter-spacing: 0.05em;
+  }
+
+  /* MAIN LAYOUT */
+  .main-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 24px 120px;
+  }
+
+  /* STEP HEADER */
+  .step-header {
+    margin-bottom: 40px;
+    animation: fadeUp 0.5s ease;
+  }
+
+  .step-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .step-tag::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--lime);
+  }
+
+  .step-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .step-subtitle {
+    font-size: 15px;
+    color: var(--gray-text);
+    line-height: 1.6;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* FORM FIELDS */
+  .field-group {
+    margin-bottom: 24px;
+    animation: fadeUp 0.5s ease;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  label span {
+    color: var(--gray-text);
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  select,
+  textarea {
+    width: 100%;
+    background: var(--gray-mid);
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
+    color: var(--white);
+    font-family: 'Archivo', sans-serif;
+    font-size: 15px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--lime);
+    background: #1e1e1e;
+  }
+
+  input::placeholder, textarea::placeholder { color: #555; }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  select option { background: #1a1a1a; }
+
+  textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+  /* CHECKBOX GRID */
+  .check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--gray-mid);
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .check-item:hover { border-color: #444; }
+  .check-item.checked { border-color: var(--lime); background: rgba(184,255,60,0.07); }
+
+  .check-item input { display: none; }
+
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 11px;
+  }
+
+  .check-item.checked .check-box {
+    background: var(--lime);
+    border-color: var(--lime);
+    color: var(--black);
+  }
+
+  .check-label { font-size: 13px; line-height: 1.3; }
+
+  /* RADIO CARDS */
+  .radio-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .radio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--gray-mid);
+    border: 1px solid var(--gray-border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .radio-card:hover { border-color: #444; }
+  .radio-card.selected { border-color: var(--lime); background: rgba(184,255,60,0.06); }
+
+  .radio-card input { display: none; }
+
+  .radio-dot {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .radio-card.selected .radio-dot {
+    border-color: var(--lime);
+    background: var(--lime);
+    box-shadow: 0 0 0 3px rgba(184,255,60,0.15);
+  }
+
+  .radio-card.selected .radio-dot::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--black);
+  }
+
+  .radio-body h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .radio-body p { font-size: 12px; color: var(--gray-text); line-height: 1.5; }
+
+  /* INFO BOX */
+  .info-box {
+    background: rgba(184,255,60,0.05);
+    border: 1px solid rgba(184,255,60,0.2);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.6;
+  }
+
+  .info-box strong { color: var(--lime); }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* NAV BUTTONS */
+  .nav-wrap {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    padding: 16px 24px;
+    background: linear-gradient(to top, var(--black) 60%, transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    background: var(--lime);
+    color: var(--black);
+  }
+
+  .btn-primary:hover { background: #c8ff5c; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gray-text);
+    border: 1px solid var(--gray-border);
+  }
+
+  .btn-secondary:hover { color: var(--white); border-color: #555; }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gray-border);
+    margin: 28px 0;
+  }
+
+  /* SUMMARY */
+  .summary-section {
+    margin-bottom: 28px;
+  }
+
+  .summary-section h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 12px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 14px;
+  }
+
+  .summary-row:last-child { border-bottom: none; }
+
+  .summary-row .label { color: var(--gray-text); }
+  .summary-row .value { font-weight: 500; text-align: right; max-width: 60%; }
+
+  .pack-highlight {
+    background: rgba(184,255,60,0.08);
+    border: 1px solid rgba(184,255,60,0.25);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .pack-highlight .pack-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 16px;
+  }
+
+  .pack-highlight .pack-price {
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    color: var(--lime);
+  }
+
+  /* SUCCESS STATE */
+  .success-wrap {
+    text-align: center;
+    padding: 40px 0;
+    animation: fadeUp 0.6s ease;
+  }
+
+  .success-icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .success-wrap h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .success-wrap p {
+    color: var(--gray-text);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+
+  .next-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    margin: 32px 0;
+  }
+
+  .next-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    background: var(--gray-mid);
+    border: 1px solid var(--gray-border);
+    border-radius: 10px;
+  }
+
+  .next-step .ns-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--lime);
+    background: rgba(184,255,60,0.1);
+    border: 1px solid rgba(184,255,60,0.2);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  .next-step h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .next-step p { font-size: 13px; color: var(--gray-text); line-height: 1.5; }
+
+  .wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .wa-btn:hover { background: #20c55b; transform: translateY(-1px); }
+
+  /* STEP HIDDEN */
+  .step { display: none; }
+  .step.active { display: block; animation: fadeUp 0.4s ease; }
+
+  @media (max-width: 600px) {
+    header { padding: 16px 20px; }
+    .main-wrap { padding: 40px 16px 120px; }
+    .step-title { font-size: 24px; }
+    .two-col { grid-template-columns: 1fr; }
+    .check-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Formulário oculto para o Netlify detetar e capturar as submissões (privado: só no vosso painel Netlify + email) -->
+<form name="onboarding" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nome">
+  <input type="email" name="email">
+  <input type="tel" name="telefone">
+  <input type="text" name="negocio">
+  <input type="text" name="sector">
+  <input type="text" name="localizacao">
+  <input type="text" name="pack">
+  <textarea name="resumo"></textarea>
+  <input name="bot-field">
+</form>
+
+<div class="progress-bar-wrap">
+  <div class="progress-bar-fill" id="progress-fill" style="width:16.6%"></div>
+</div>
+
+<header>
+  <div class="logo">Pacific Chaos</div>
+  <div class="step-indicator" id="step-indicator">Passo 1 de 6</div>
+</header>
+
+<div class="main-wrap">
+
+  <!-- STEP 1: Boas-vindas + dados básicos -->
+  <div class="step active" id="step-1">
+    <div class="step-header">
+      <div class="step-tag">Início</div>
+      <h1 class="step-title">Bem-vindo(a) à Pacific Chaos.</h1>
+      <p class="step-subtitle">Bem-vindo(a) a bordo! 🎉 Agora que vamos trabalhar juntos, precisamos de alguns detalhes sobre o teu negócio para arrancarmos com tudo. São 5 minutos e ficamos prontos para começar.</p>
+    </div>
+
+    <div class="field-group">
+      <label>Nome completo</label>
+      <input type="text" id="f-name" placeholder="Ex: João Silva">
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label>Email</label>
+        <input type="email" id="f-email" placeholder="joao@empresa.pt">
+      </div>
+      <div class="field-group">
+        <label>Telemóvel <span>(preferencialmente WhatsApp)</span></label>
+        <input type="tel" id="f-phone" placeholder="+351 9xx xxx xxx">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Nome do negócio / empresa</label>
+      <input type="text" id="f-business" placeholder="Ex: Clínica Saúde Total">
+    </div>
+
+    <div class="field-group">
+      <label>Plano contratado</label>
+      <select id="f-plan">
+        <option value="">Selecciona...</option>
+        <option>Presença</option>
+        <option>Crescimento</option>
+        <option>Performance</option>
+      </select>
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label>Sector / Indústria</label>
+        <select id="f-sector">
+          <option value="">Selecciona...</option>
+          <option>Saúde / Clínica</option>
+          <option>Ginásio / Fitness</option>
+          <option>Estética / Beleza</option>
+          <option>Advocacia / Consultoria</option>
+          <option>Restauração / F&B</option>
+          <option>Imobiliário</option>
+          <option>Arquitectura / Design</option>
+          <option>Comércio Local</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Localização</label>
+        <input type="text" id="f-location" placeholder="Ex: Porto">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Website <span>(se tiver)</span></label>
+      <input type="url" id="f-website" placeholder="https://...">
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label>Morada do negócio</label>
+        <input type="text" id="f-address" placeholder="Rua, nº, cidade">
+      </div>
+      <div class="field-group">
+        <label>Horário de funcionamento</label>
+        <input type="text" id="f-hours" placeholder="Ex: Seg–Sex 9h–19h · Sáb 9h–13h">
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Redes sociais -->
+  <div class="step" id="step-2">
+    <div class="step-header">
+      <div class="step-tag">Presença Digital</div>
+      <h1 class="step-title">As tuas redes sociais.</h1>
+      <p class="step-subtitle">Precisamos de acesso às páginas para gerir o conteúdo. Preenche os handles e daremos instruções de acesso a seguir.</p>
+    </div>
+
+    <div class="field-group">
+      <label>Instagram <span>(@ do perfil)</span></label>
+      <input type="text" id="f-instagram" placeholder="@nomedoperfil">
+    </div>
+
+    <div class="field-group">
+      <label>Facebook <span>(página ou perfil)</span></label>
+      <input type="text" id="f-facebook" placeholder="facebook.com/nomedapagina ou nome da página">
+    </div>
+
+    <div class="field-group">
+      <label>Que redes já usas? <span>(selecciona tudo o que aplica)</span></label>
+      <div class="check-grid" style="margin-top:8px;">
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="instagram">
+          <span class="check-box">✓</span>
+          <span class="check-label">Instagram</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="facebook">
+          <span class="check-box">✓</span>
+          <span class="check-label">Facebook</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="linkedin">
+          <span class="check-box">✓</span>
+          <span class="check-label">LinkedIn</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="tiktok">
+          <span class="check-box">✓</span>
+          <span class="check-label">TikTok</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="google">
+          <span class="check-box">✓</span>
+          <span class="check-label">Google Business</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="nenhuma">
+          <span class="check-box">✓</span>
+          <span class="check-label">Nenhuma activa</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Tens conta de anúncios no Meta (Facebook Ads)?</label>
+      <div class="radio-cards" id="ads-account">
+        <label class="radio-card" onclick="selectRadio(this, 'ads-account')">
+          <input type="radio" name="ads-account" value="sim">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Sim, tenho</h4>
+            <p>Já tenho Business Manager / conta de anúncios configurada</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'ads-account')">
+          <input type="radio" name="ads-account" value="nao">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Não tenho</h4>
+            <p>Vamos criar e configurar tudo do zero</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'ads-account')">
+          <input type="radio" name="ads-account" value="nao-sei">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Não sei / não tenho a certeza</h4>
+            <p>Verificamos em conjunto</p>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Têm acesso de proprietário ao perfil Google do negócio?</label>
+      <div class="radio-cards" id="google-access">
+        <label class="radio-card" onclick="selectRadio(this, 'google-access')">
+          <input type="radio" name="google-access" value="sim">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Sim, temos acesso</h4>
+            <p>Sabemos entrar e editar o perfil no Google</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'google-access')">
+          <input type="radio" name="google-access" value="nao-existe">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Não existe / nunca foi criado</h4>
+            <p>Criamos e configuramos tudo do zero</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'google-access')">
+          <input type="radio" name="google-access" value="nao-sei">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Existe, mas não sei quem tem acesso</h4>
+            <p>Recuperamos o acesso em conjunto</p>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Como marcam / contactam os clientes hoje? <span>(selecciona tudo o que aplica)</span></label>
+      <div class="check-grid" style="margin-top:8px;" id="booking-channels">
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="telefone">
+          <span class="check-box">✓</span>
+          <span class="check-label">Telefone</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="whatsapp">
+          <span class="check-box">✓</span>
+          <span class="check-label">WhatsApp</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="dm">
+          <span class="check-box">✓</span>
+          <span class="check-label">Mensagens Instagram/Facebook</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="site">
+          <span class="check-box">✓</span>
+          <span class="check-label">Formulário no site</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="plataforma">
+          <span class="check-box">✓</span>
+          <span class="check-label">Plataforma de marcações</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="balcao">
+          <span class="check-box">✓</span>
+          <span class="check-label">Ao balcão / presencial</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Quem responde aos pedidos de clientes novos — e em quanto tempo? <span>(importante: os contactos que geramos vão para esta pessoa)</span></label>
+      <input type="text" id="f-responder" placeholder="Ex: A Marta (receção), normalmente em menos de 1 hora">
+    </div>
+  </div>
+
+  <!-- STEP 3: Negócio -->
+  <div class="step" id="step-3">
+    <div class="step-header">
+      <div class="step-tag">O teu negócio</div>
+      <h1 class="step-title">Queremos perceber o teu negócio.</h1>
+      <p class="step-subtitle">Quanto melhor conhecermos o teu negócio, melhor o conteúdo e os anúncios vão funcionar.</p>
+    </div>
+
+    <div class="field-group">
+      <label>Descreve o que fazes em 2-3 frases</label>
+      <textarea id="f-description" placeholder="Ex: Somos uma clínica de fisioterapia especializada em lesões desportivas. Trabalhamos com atletas amadores e profissionais..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label>Qual é o teu cliente ideal? <span>(perfil / idade / problema)</span></label>
+      <textarea id="f-client" placeholder="Ex: Adultos entre 30-55 anos com dores crónicas nas costas ou lesões no joelho, que querem recuperar sem cirurgia..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label>Qual é o teu serviço / produto principal? <span>(o que mais vendes ou queres promover)</span></label>
+      <input type="text" id="f-main-service" placeholder="Ex: Fisioterapia desportiva | Plano alimentar personalizado | Consulta jurídica laboral">
+    </div>
+
+    <div class="field-group">
+      <label>Qual é o preço médio desse serviço?</label>
+      <select id="f-price">
+        <option value="">Selecciona...</option>
+        <option>Menos de 50€</option>
+        <option>50€ – 100€</option>
+        <option>100€ – 300€</option>
+        <option>300€ – 1000€</option>
+        <option>Mais de 1000€</option>
+        <option>Subscrição / recorrente</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label>Quantos clientes novos chegam por mês actualmente?</label>
+      <select id="f-clients-month">
+        <option value="">Selecciona...</option>
+        <option>Menos de 5</option>
+        <option>5 – 15</option>
+        <option>15 – 30</option>
+        <option>Mais de 30</option>
+        <option>Muito variável / imprevisível</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label>Como chegam actualmente os teus clientes? <span>(selecciona tudo o que aplica)</span></label>
+      <div class="check-grid" style="margin-top:8px;">
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="referencias">
+          <span class="check-box">✓</span>
+          <span class="check-label">Referências / passa-palavra</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="google">
+          <span class="check-box">✓</span>
+          <span class="check-label">Pesquisa Google</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="instagram">
+          <span class="check-box">✓</span>
+          <span class="check-label">Instagram / redes sociais</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="ads">
+          <span class="check-box">✓</span>
+          <span class="check-label">Publicidade paga</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="eventos">
+          <span class="check-box">✓</span>
+          <span class="check-label">Eventos / networking</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="outro">
+          <span class="check-box">✓</span>
+          <span class="check-label">Outro</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Objectivos -->
+  <div class="step" id="step-4">
+    <div class="step-header">
+      <div class="step-tag">Objectivos</div>
+      <h1 class="step-title">O que queres alcançar.</h1>
+      <p class="step-subtitle">Define o que significa sucesso para ti nos próximos 3 meses.</p>
+    </div>
+
+    <div class="field-group">
+      <label>Qual é o teu principal objectivo com a Pacific Chaos?</label>
+      <div class="radio-cards" id="main-goal">
+        <label class="radio-card" onclick="selectRadio(this, 'main-goal')">
+          <input type="radio" name="main-goal" value="presenca">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>🏗️ Construir presença e autoridade</h4>
+            <p>Quero que as pessoas me conheçam e confiem na minha marca</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'main-goal')">
+          <input type="radio" name="main-goal" value="leads">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>📥 Gerar contactos e marcações</h4>
+            <p>Quero mais pessoas a pedir informações / marcando consultas</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'main-goal')">
+          <input type="radio" name="main-goal" value="escalar">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>🚀 Escalar e dominar o mercado local</h4>
+            <p>Já tenho clientes — quero crescer de forma agressiva e sistemática</p>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Tens um número concreto de clientes / leads que queres atingir por mês?</label>
+      <input type="text" id="f-goal-number" placeholder="Ex: 20 marcações por mês | 50 leads | duplar a faturação">
+    </div>
+
+    <div class="field-group">
+      <label>Qual é o teu maior desafio de marketing actualmente?</label>
+      <textarea id="f-challenge" placeholder="Conta-nos o que não está a funcionar ou o que mais te preocupa..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label>Budget mensal para anúncios Meta Ads <span>(cobrado à parte, com total transparência)</span></label>
+      <div class="radio-cards" id="ads-budget">
+        <label class="radio-card" onclick="selectRadio(this, 'ads-budget')">
+          <input type="radio" name="ads-budget" value="100-200">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>100€ – 200€/mês</h4>
+            <p>Arranque conservador, ideal para testar o mercado</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'ads-budget')">
+          <input type="radio" name="ads-budget" value="200-500">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>200€ – 500€/mês</h4>
+            <p>Crescimento sólido com dados suficientes para optimizar</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'ads-budget')">
+          <input type="radio" name="ads-budget" value="500+">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>500€+/mês</h4>
+            <p>Escalar rápido — volumes que permitem testes A/B e retargeting</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'ads-budget')">
+          <input type="radio" name="ads-budget" value="sem-ads">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Sem anúncios por agora</h4>
+            <p>Foco apenas em conteúdo orgânico, sem anúncios pagos</p>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Como preferem pagar o investimento dos anúncios?</label>
+      <div class="radio-cards" id="ads-payment">
+        <label class="radio-card" onclick="selectRadio(this, 'ads-payment')">
+          <input type="radio" name="ads-payment" value="cartao">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Cartão do negócio na conta de anúncios (recomendado)</h4>
+            <p>Pagam diretamente à Meta, na vossa conta — transparência total, veem cada euro</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'ads-payment')">
+          <input type="radio" name="ads-payment" value="transferencia">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Transferência para a Pacific Chaos</h4>
+            <p>Carregamos a conta por vocês — os anúncios ativam após a receção do valor</p>
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Conteúdo & Acesso -->
+  <div class="step" id="step-5">
+    <div class="step-header">
+      <div class="step-tag">Conteúdo & Acesso</div>
+      <h1 class="step-title">Vamos preparar o conteúdo.</h1>
+      <p class="step-subtitle">Para criarmos conteúdo autêntico precisamos de alguns materiais e acessos. Sem isso, o conteúdo parece genérico — e nós detestamos isso.</p>
+    </div>
+
+    <div class="info-box">
+      <strong>📸 Visita de recolha de conteúdo</strong> — Nos próximos dias a nossa equipa vai ao teu espaço para fotografar, filmar e recolher material real. Isto é incluído no serviço.
+    </div>
+
+    <div class="field-group">
+      <label>Tens fotos e vídeos do teu negócio disponíveis? <span>(para usar enquanto agendamos a visita)</span></label>
+      <div class="radio-cards" id="has-content">
+        <label class="radio-card" onclick="selectRadio(this, 'has-content')">
+          <input type="radio" name="has-content" value="sim-muitos">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Sim, tenho bastante material</h4>
+            <p>Fotos e vídeos profissionais disponíveis para usar imediatamente</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'has-content')">
+          <input type="radio" name="has-content" value="sim-poucos">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Tenho alguma coisa</h4>
+            <p>Algumas fotos mas precisamos de mais material</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'has-content')">
+          <input type="radio" name="has-content" value="nao">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Não tenho quase nada</h4>
+            <p>Vamos começar do zero — a visita é essencial</p>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Quais são os temas / assuntos que queres abordar nas redes? <span>(o que os teus clientes perguntam? que dúvidas têm?)</span></label>
+      <textarea id="f-topics" placeholder="Ex: Tipos de dores nas costas, exercícios para fazer em casa, mitos sobre fisioterapia, antes e depois de tratamentos..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label>Há marcas ou contas que admiras no teu sector? <span>(referências de estilo / tom)</span></label>
+      <input type="text" id="f-references" placeholder="Ex: @drjoaofisio, clinicarenovar, ...">
+    </div>
+
+    <div class="field-group">
+      <label>Tom da comunicação <span>(como queres parecer?)</span></label>
+      <div class="check-grid" style="margin-top:8px;">
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="profissional">
+          <span class="check-box">✓</span>
+          <span class="check-label">Profissional / sério</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="proximo">
+          <span class="check-box">✓</span>
+          <span class="check-label">Próximo / humano</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="educativo">
+          <span class="check-box">✓</span>
+          <span class="check-label">Educativo / informativo</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="inspirador">
+          <span class="check-box">✓</span>
+          <span class="check-label">Inspirador / motivacional</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="premium">
+          <span class="check-box">✓</span>
+          <span class="check-label">Premium / exclusivo</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" value="divertido">
+          <span class="check-box">✓</span>
+          <span class="check-label">Dinâmico / divertido</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Como preferem que funcione a publicação do conteúdo?</label>
+      <div class="radio-cards" id="pub-regime">
+        <label class="radio-card" onclick="selectRadio(this, 'pub-regime')">
+          <input type="radio" name="pub-regime" value="livre">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>✅ Livre trânsito (recomendado)</h4>
+            <p>Criamos e publicamos segundo a linha definida no arranque — vês tudo já no ar, zero trabalho do teu lado. Conteúdo com preços ou promoções confirmamos contigo antes.</p>
+          </span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this, 'pub-regime')">
+          <input type="radio" name="pub-regime" value="aprovacao">
+          <span class="radio-dot"></span>
+          <span class="radio-body">
+            <h4>Aprovação mensal</h4>
+            <p>Enviamos o plano de conteúdo do mês de uma só vez; sem resposta em 48h úteis, segue para publicação — para a cadência nunca parar</p>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Há algo que NUNCA devemos dizer, mostrar ou publicar? <span>(temas sensíveis, concorrentes, serviços a evitar...)</span></label>
+      <textarea id="f-nevers" placeholder="Ex: não falar de preços do serviço X, não mostrar a zona das traseiras, nunca comparar com a clínica Y..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label>Notas adicionais / algo que devemos saber</label>
+      <textarea id="f-notes" placeholder="Qualquer coisa importante que não tenha sido perguntada acima..."></textarea>
+    </div>
+  </div>
+
+  <!-- STEP 6: Resumo final -->
+  <div class="step" id="step-6">
+    <div class="step-header">
+      <div class="step-tag">Confirmação</div>
+      <h1 class="step-title">Estamos prontos para começar.</h1>
+      <p class="step-subtitle">Confirma os teus dados antes de submeter. Assim que recebermos, começamos já a preparar o arranque.</p>
+    </div>
+
+    <div class="summary-section">
+      <h3>Os teus dados</h3>
+      <div class="summary-row"><span class="label">Nome</span><span class="value" id="sum-name">—</span></div>
+      <div class="summary-row"><span class="label">Negócio</span><span class="value" id="sum-business">—</span></div>
+      <div class="summary-row"><span class="label">Sector</span><span class="value" id="sum-sector">—</span></div>
+      <div class="summary-row"><span class="label">Localização</span><span class="value" id="sum-location">—</span></div>
+      <div class="summary-row"><span class="label">Contacto</span><span class="value" id="sum-contact">—</span></div>
+      <div class="summary-row"><span class="label">Publicação</span><span class="value" id="sum-regime">—</span></div>
+      <div class="summary-row"><span class="label">Pagamento dos ads</span><span class="value" id="sum-adspay">—</span></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="summary-section">
+      <h3>Plano contratado</h3>
+      <div class="summary-row"><span class="label">Plano</span><span class="value" id="sum-plan">—</span></div>
+      <p style="font-size:12px;color:var(--gray-text);margin-top:8px;">Contrato mínimo de 3 meses · investimento em anúncios cobrado à parte com total transparência.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="summary-section">
+      <h3>Próximos passos</h3>
+      <div class="next-steps">
+        <div class="next-step">
+          <div class="ns-num">1</div>
+          <div>
+            <h4>Recebemos as tuas respostas</h4>
+            <p>Ao submeteres, os teus dados chegam diretamente à nossa equipa — não tens de fazer mais nada.</p>
+          </div>
+        </div>
+        <div class="next-step">
+          <div class="ns-num">2</div>
+          <div>
+            <h4>Enviamos os próximos passos</h4>
+            <p>Em menos de 24h recebes de nós, por escrito, tudo o que se segue.</p>
+          </div>
+        </div>
+        <div class="next-step">
+          <div class="ns-num">3</div>
+          <div>
+            <h4>Marcamos a sessão de conteúdo</h4>
+            <p>Combinamos a melhor data para irmos ao teu espaço captar fotos e vídeo reais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="summary-section">
+      <h3>Âmbito e condições de entrega</h3>
+      <div class="info-box" style="margin-bottom:12px;">
+        <strong>O essencial:</strong> os entregáveis são os listados na proposta · publicação em regime de confiança (ou aprovação mensal, com 48h úteis de resposta) · conteúdo com preços/promoções confirmado se necessário · ajustes pontuais sem custo, pedidos extra orçamentados à parte · sessões de captação na cadência do plano (remarcações com menos de 24h contam como realizadas, salvo exceções) · comunicação por WhatsApp/email em horário útil, reuniões a pedido · respondemos a perguntas simples nas redes, pedidos comerciais vão para vocês · contas em vosso nome · relatório mensal até ao dia 5.
+      </div>
+      <label class="check-item" id="clause-item" onclick="toggleCheck(this)" style="border-color:var(--gray-border);">
+        <input type="checkbox" id="f-clause" value="aceito">
+        <span class="check-box">✓</span>
+        <span class="check-label"><b>Li e aceito o âmbito e condições de entrega</b></span>
+      </label>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;">
+      <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Tens alguma dúvida urgente? Fala connosco directamente.</p>
+      <a href="https://wa.me/351914816370?text=Olá!%20Acabei%20de%20fazer%20o%20onboarding%20e%20tenho%20uma%20questão..." class="wa-btn" target="_blank">
+        💬 Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- SUCCESS STATE -->
+  <div class="step" id="step-success">
+    <div class="success-wrap">
+      <span class="success-icon">🎉</span>
+      <h2>Onboarding recebido!</h2>
+      <p>As tuas respostas foram enviadas com sucesso à equipa da Pacific Chaos. Não precisas de fazer mais nada — entramos em contacto em menos de 24 horas.</p>
+
+      <div class="next-steps">
+        <div class="next-step">
+          <div class="ns-num">✓</div>
+          <div>
+            <h4>Recebemos tudo</h4>
+            <p>As tuas respostas chegaram à nossa equipa em segurança.</p>
+          </div>
+        </div>
+        <div class="next-step">
+          <div class="ns-num">📞</div>
+          <div>
+            <h4>Em menos de 24h</h4>
+            <p>Entramos em contacto com os próximos passos e para marcar a sessão de conteúdo.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://wa.me/351914816370?text=Ol%C3%A1!%20Acabei%20de%20submeter%20o%20onboarding%20e%20tenho%20uma%20quest%C3%A3o." class="wa-btn" target="_blank" style="margin-top:16px;" id="success-wa">
+        💬 Tenho uma dúvida — falar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- NAV BUTTONS -->
+<div class="nav-wrap" id="nav-wrap">
+  <button class="btn btn-secondary" id="btn-back" onclick="prevStep()" style="display:none;">← Anterior</button>
+  <div></div>
+  <button class="btn btn-primary" id="btn-next" onclick="nextStep()">Continuar →</button>
+</div>
+
+<script>
+let currentStep = 1;
+const totalSteps = 6;
+
+function updateProgress() {
+  const pct = (currentStep / totalSteps) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('step-indicator').textContent = `Passo ${currentStep} de ${totalSteps}`;
+}
+
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('step-' + n);
+  if (el) el.classList.add('active');
+
+  document.getElementById('btn-back').style.display = n > 1 ? 'block' : 'none';
+
+  if (n === totalSteps) {
+    document.getElementById('btn-next').textContent = '✓ Submeter';
+    fillSummary();
+  } else if (n > totalSteps) {
+    document.getElementById('nav-wrap').style.display = 'none';
+  } else {
+    document.getElementById('btn-next').textContent = 'Continuar →';
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgress();
+}
+
+function flagField(el) {
+  if (!el) return;
+  el.style.borderColor = '#ff5c5c';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => { el.style.borderColor = ''; }, 1800);
+}
+
+function validateStep(n) {
+  if (n === 1) {
+    const name = document.getElementById('f-name');
+    const email = document.getElementById('f-email');
+    const phone = document.getElementById('f-phone');
+    if (!name.value.trim()) { flagField(name); return false; }
+    if (!email.value.trim() && !phone.value.trim()) { flagField(phone); return false; }
+  }
+  return true;
+}
+
+function nextStep() {
+  if (!validateStep(currentStep)) return;
+  if (currentStep < totalSteps) {
+    currentStep++;
+    showStep(currentStep);
+  } else {
+    submitOnboarding();
+  }
+}
+
+function prevStep() {
+  if (currentStep > 1) {
+    currentStep--;
+    showStep(currentStep);
+  }
+}
+
+function toggleCheck(el) {
+  const cb = el.querySelector('input[type="checkbox"]');
+  if (!cb) return;
+  // Deixa o clique no <label> alternar o checkbox nativamente (uma vez) e só sincroniza a classe visual
+  requestAnimationFrame(function () { el.classList.toggle('checked', cb.checked); });
+}
+
+function selectRadio(el, groupId) {
+  const parent = document.getElementById(groupId);
+  if (!parent) return;
+  parent.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  const radio = el.querySelector('input[type="radio"]');
+  if (radio) radio.checked = true;
+}
+
+function getGoalLabel(v) {
+  const map = { presenca: 'Construir Presença', leads: 'Gerar Leads', escalar: 'Escalar' };
+  return map[v] || '—';
+}
+
+function getBudgetLabel(v) {
+  const map = { '100-200': '100–200€/mês', '200-500': '200–500€/mês', '500+': '500€+/mês', 'sem-ads': 'Sem anúncios' };
+  return map[v] || '—';
+}
+
+function recommendPack() {
+  const goal = document.querySelector('input[name="main-goal"]:checked')?.value;
+  const budget = document.querySelector('input[name="ads-budget"]:checked')?.value;
+
+  if (goal === 'escalar' || budget === '500+') {
+    return { name: 'Pack Performance', price: '700€/mês', desc: 'Múltiplas campanhas, testes A/B, retargeting e consultoria de crescimento.' };
+  } else if (goal === 'leads' || budget === '200-500' || budget === '100-200') {
+    return { name: 'Pack Crescimento', price: '450€/mês', desc: 'O sistema completo — conteúdo + Meta Ads geridos em conjunto.' };
+  } else {
+    return { name: 'Pack Presença', price: '300€/mês', desc: 'Gestão profissional de Instagram e Facebook com conteúdo estratégico.' };
+  }
+}
+
+function fillSummary() {
+  const name = document.getElementById('f-name').value || '—';
+  const business = document.getElementById('f-business').value || '—';
+  const sector = document.getElementById('f-sector').value || '—';
+  const location = document.getElementById('f-location').value || '—';
+  const email = document.getElementById('f-email').value || '—';
+  const phone = document.getElementById('f-phone').value || '—';
+
+  document.getElementById('sum-name').textContent = name;
+  document.getElementById('sum-business').textContent = business;
+  document.getElementById('sum-sector').textContent = sector;
+  document.getElementById('sum-location').textContent = location;
+  document.getElementById('sum-contact').textContent = `${email} · ${phone}`;
+  document.getElementById('sum-regime').textContent = getRegimeLabel(gRadio('pub-regime'));
+  document.getElementById('sum-adspay').textContent = getAdsPayLabel(gRadio('ads-payment'));
+  document.getElementById('sum-plan').textContent = gv('f-plan') || '—';
+}
+
+// ——— Recolha e submissão via WhatsApp (sem backend) ———
+function gv(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function gRadio(name) { const r = document.querySelector(`input[name="${name}"]:checked`); return r ? r.value : ''; }
+function gCheckLabels(sel) {
+  return Array.from(document.querySelectorAll(sel))
+    .filter(i => i.checked)
+    .map(i => i.closest('.check-item').querySelector('.check-label').textContent.trim())
+    .join(', ') || '—';
+}
+function cut(s, n) { return s && s.length > n ? s.slice(0, n) + '…' : (s || '—'); }
+function getRegimeLabel(v) { return v === 'livre' ? 'Livre trânsito' : v === 'aprovacao' ? 'Aprovação mensal' : '—'; }
+function getAdsPayLabel(v) { return v === 'cartao' ? 'Cartão próprio (direto à Meta)' : v === 'transferencia' ? 'Transferência p/ PCS (ativa após receção)' : '—'; }
+const RAW_LABELS = {
+  'sim': 'Sim', 'nao': 'Não', 'nao-sei': 'Não sabe', 'nao-existe': 'Não existe',
+  'sim-muitos': 'Tem bastante material', 'sim-poucos': 'Tem algum material'
+};
+function rawLabel(v) { return RAW_LABELS[v] || v || '—'; }
+
+let SUMMARY_TEXT = '';
+
+function buildSummary() {
+  const L = [];
+  L.push('🚀 ONBOARDING — ' + (gv('f-business') || 'Novo cliente'));
+  L.push('');
+  L.push('👤 ' + gv('f-name') + ' · ' + gv('f-phone') + ' · ' + gv('f-email'));
+  L.push('🏢 ' + gv('f-business') + ' · ' + gv('f-sector') + ' · ' + gv('f-location'));
+  L.push('📍 ' + (gv('f-address') || '—') + ' · Horário: ' + (gv('f-hours') || '—'));
+  L.push('🌐 Site: ' + (gv('f-website') || '—') + ' · IG: ' + (gv('f-instagram') || '—') + ' · FB: ' + (gv('f-facebook') || '—'));
+  L.push('');
+  L.push('— PRESENÇA & OPERAÇÃO —');
+  L.push('Redes ativas: ' + gCheckLabels('#step-2 .check-grid:not(#booking-channels) input'));
+  L.push('Conta ads Meta: ' + rawLabel(gRadio('ads-account')) + ' · Acesso Google: ' + rawLabel(gRadio('google-access')));
+  L.push('Marcações hoje: ' + gCheckLabels('#booking-channels input'));
+  L.push('Quem responde a pedidos: ' + (gv('f-responder') || '—'));
+  L.push('');
+  L.push('— NEGÓCIO —');
+  L.push('Descrição: ' + cut(gv('f-description'), 350));
+  L.push('Cliente ideal: ' + cut(gv('f-client'), 300));
+  L.push('Serviço principal: ' + (gv('f-main-service') || '—') + ' · Preço médio: ' + (gv('f-price') || '—'));
+  L.push('Clientes novos/mês: ' + (gv('f-clients-month') || '—'));
+  L.push('Canais atuais: ' + gCheckLabels('#step-3 .check-grid input'));
+  L.push('');
+  L.push('— OBJETIVOS —');
+  L.push('Objetivo: ' + getGoalLabel(gRadio('main-goal')) + ' · Meta: ' + (gv('f-goal-number') || '—'));
+  L.push('Desafio: ' + cut(gv('f-challenge'), 300));
+  L.push('Budget ads: ' + getBudgetLabel(gRadio('ads-budget')) + ' · Pagamento: ' + getAdsPayLabel(gRadio('ads-payment')));
+  L.push('');
+  L.push('— CONTEÚDO —');
+  L.push('Material existente: ' + rawLabel(gRadio('has-content')));
+  L.push('Temas: ' + cut(gv('f-topics'), 300));
+  L.push('Referências: ' + (gv('f-references') || '—'));
+  L.push('Tom: ' + gCheckLabels('#step-5 .check-grid input'));
+  L.push('Publicação: ' + getRegimeLabel(gRadio('pub-regime')));
+  L.push('🚫 Nunca dizer/mostrar: ' + cut(gv('f-nevers'), 300));
+  L.push('Notas: ' + cut(gv('f-notes'), 300));
+  L.push('');
+  L.push('📦 Plano contratado: ' + (gv('f-plan') || '—'));
+  L.push('✅ Âmbito e condições: aceites');
+  return L.join('\n');
+}
+
+function copySummary() {
+  if (!SUMMARY_TEXT) SUMMARY_TEXT = buildSummary();
+  if (navigator.clipboard) navigator.clipboard.writeText(SUMMARY_TEXT);
+}
+
+function submitOnboarding() {
+  const clause = document.getElementById('f-clause');
+  if (!clause || !clause.checked) {
+    const item = document.getElementById('clause-item');
+    if (item) {
+      item.style.borderColor = '#ff5c5c';
+      item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => { item.style.borderColor = ''; }, 1800);
+    }
+    return;
+  }
+  SUMMARY_TEXT = buildSummary();
+
+  // Enviar os dados para o Netlify Forms (privado — só no vosso painel Netlify + notificação por email)
+  const payload = new URLSearchParams();
+  payload.append('form-name', 'onboarding');
+  payload.append('bot-field', '');
+  payload.append('nome', gv('f-name'));
+  payload.append('email', gv('f-email'));
+  payload.append('telefone', gv('f-phone'));
+  payload.append('negocio', gv('f-business'));
+  payload.append('sector', gv('f-sector'));
+  payload.append('localizacao', gv('f-location'));
+  payload.append('pack', gv('f-plan'));
+  payload.append('resumo', SUMMARY_TEXT);
+  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: payload.toString() }).catch(function () {});
+
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-success').classList.add('active');
+  document.getElementById('nav-wrap').style.display = 'none';
+  document.getElementById('progress-fill').style.width = '100%';
+  document.getElementById('step-indicator').textContent = 'Concluído ✓';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Init
+updateProgress();
+</script>
+</body>
+</html>
