@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX8P0FNTNR"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-QX8P0FNTNR');
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','796133739211083');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=796133739211083&ev=PageView&noscript=1"/></noscript>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+<title>Portfólio — Pacific Chaos Studio</title>
+<meta name="description" content="Portfólio visual da Pacific Chaos Studio — conteúdo, anúncios e fotografia para negócios locais. Restauração, estética, retalho e construção.">
+<link rel="canonical" href="https://pacificchaosstudio.com/portfolio.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pacificchaosstudio.com/portfolio.html">
+<meta property="og:title" content="Portfólio — Pacific Chaos Studio">
+<meta property="og:description" content="Conteúdo, anúncios e fotografia para negócios locais. Não gerimos redes. Criamos clientes.">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:image" content="https://pacificchaosstudio.com/og-image.png">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0a;--bg2:#101010;--sur:#161616;--sur2:#1d1d1d;--bor:#262626;
+  --acc:#b8ff3c;--acc-d:#9be01f;--txt:#f2f2f2;--mut:#8a8a8a;--mut2:#5a5a5a;
+  --mono:'DM Mono',monospace;--sans:'Cabinet Grotesk','Archivo',system-ui,sans-serif;--display:'Archivo','Cabinet Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px;color-scheme:dark;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:500;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--acc);color:#000}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bor)}::-webkit-scrollbar-thumb:hover{background:var(--acc)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(12px);background:rgba(10,10,10,.72);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-bottom-color:var(--bor)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1240px;margin:0 auto;padding:0 28px}
+.brand{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.brand span{color:var(--acc)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:12px;color:var(--mut);transition:color .2s}
+.nav-links a:hover{color:var(--txt)}
+.nav-cta{background:var(--acc);color:#000!important;padding:9px 18px;font-weight:700;font-size:11px!important;text-transform:uppercase;letter-spacing:.05em;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--acc-d);transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:1px solid var(--bor);width:40px;height:40px;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0;flex-shrink:0}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--txt);transition:transform .25s,opacity .25s}
+nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .nav-toggle span:nth-child(2){opacity:0}
+nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none}
+@media(max-width:760px){
+  .nav-links a:not(.nav-cta):not(.nav-home){display:none}
+  .nav-toggle{display:flex}
+  .mobile-menu{display:block;position:fixed;top:56px;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--bor);transform:translateY(-130%);transition:transform .3s ease;z-index:99}
+  nav.open .mobile-menu{transform:translateY(0)}
+  .mobile-menu a{display:block;padding:16px 20px;font-family:var(--mono);font-size:14px;color:var(--txt);border-top:1px solid var(--bor)}
+  .mobile-menu a:first-child{border-top:none}
+  .mobile-menu a.cta{color:var(--acc);font-weight:700}
+}
+
+/* HERO */
+.hero{padding:128px 0 60px;border-bottom:1px solid var(--bor);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-180px;right:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(184,255,60,.08),transparent 65%);pointer-events:none}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:12px;color:var(--acc);text-transform:uppercase;letter-spacing:.2em;margin-bottom:22px;display:inline-block}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(52px,12vw,150px);line-height:.84;letter-spacing:-.04em;text-transform:uppercase}
+.hero h1 .lime{color:var(--acc)}
+.hero-intro{max-width:330px;font-size:14.5px;color:var(--mut);padding-bottom:14px;line-height:1.6}
+.hero-intro b{color:var(--txt);font-weight:700}
+.disc{margin-top:50px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.disc span{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt);border:1px solid var(--bor);padding:9px 16px}
+.disc span.on{border-color:var(--acc);color:var(--acc)}
+.disc .dash{color:var(--bor)}
+
+/* CLIENT SECTION */
+.client{padding:58px 0;border-bottom:1px solid var(--bor)}
+.client-head{display:flex;align-items:baseline;gap:18px;margin-bottom:26px;flex-wrap:wrap}
+.client-head .idx{font-family:var(--mono);font-size:14px;color:var(--acc);letter-spacing:.1em}
+.client-head h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,64px);text-transform:uppercase;letter-spacing:-.02em;line-height:1}
+.client-head .meta{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase;margin-left:auto}
+
+/* GRID + TILES */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.tile{aspect-ratio:3/4;background:var(--sur) center/cover no-repeat;border:1px solid var(--bor);position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.tile::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 11px,rgba(255,255,255,.014) 11px,rgba(255,255,255,.014) 22px)}
+.tile::after{content:"PACIFIC CHAOS";position:absolute;bottom:9px;left:10px;font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:#3a3a3a}
+.tile[style*="background-image"]::before,.tile[style*="background-image"]::after{display:none}
+.tile:hover{border-color:var(--acc);transform:translateY(-2px)}
+.tile.wide{aspect-ratio:auto;grid-column:span 2}
+@media(max-width:520px){.grid{grid-template-columns:repeat(2,1fr)}.tile.wide{grid-column:span 2}}
+
+/* CTA / FOOTER */
+.touch{padding:96px 0;text-align:center;position:relative;overflow:hidden}
+.touch::before{content:"";position:absolute;bottom:-160px;left:50%;transform:translateX(-50%);width:560px;height:420px;background:radial-gradient(circle,rgba(184,255,60,.07),transparent 65%);pointer-events:none}
+.touch .k{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--acc);text-transform:uppercase;margin-bottom:20px}
+.touch h2{font-family:var(--display);font-weight:900;font-size:clamp(40px,9vw,110px);line-height:.9;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:30px}
+.touch h2 .lime{color:var(--acc)}
+.touch .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.touch .links a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--bor);padding:14px 24px;color:var(--txt);transition:.15s}
+.touch .links a.solid{background:var(--acc);color:#0a0a0a;border-color:var(--acc);font-weight:700}
+.touch .links a:hover{border-color:var(--acc);color:var(--acc)}
+.touch .links a.solid:hover{background:var(--acc-d);color:#0a0a0a}
+.foot-tag{margin-top:48px;font-family:var(--mono);font-size:11px;color:var(--mut);letter-spacing:.06em}
+.foot-tag b{color:var(--acc);font-weight:500}
+
+/* WhatsApp float */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:90;background:var(--acc);color:#000;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 6px 24px rgba(184,255,60,.35);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+
+@media(max-width:760px){
+  .wrap{padding:0 18px}
+  .nav-in{padding:0 16px;height:56px}
+  .hero{padding:104px 0 44px}
+  .client{padding:42px 0}
+  .touch{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/*
+  ════════════════════════════════════════════════════════════
+  COMO METER AS FOTOS REAIS:
+  cada quadrado é <div class="tile"></div>.
+  Mete as fotos na pasta  portfolio/  (ex: portfolio/itachi-1.jpg)
+  e acrescenta o estilo com o caminho:
+      <div class="tile" data-bg="portfolio/itachi-1.jpg"></div>
+  (o padrão de fundo desaparece sozinho quando há imagem.)
+  Foto horizontal a ocupar 2 colunas:  class="tile wide"
+  ════════════════════════════════════════════════════════════
+*/
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="brand">Pacific<span>Chaos</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-home">← Início</a>
+      <a href="#itachi">Restauração</a>
+      <a href="#mlbeauty">Estética</a>
+      <a href="#sapataria">Retalho</a>
+      <a href="#dualarte">Construção</a>
+      <a href="index.html#contacto" class="nav-cta">Diagnóstico grátis</a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">← Início</a>
+    <a href="#itachi">Restauração</a>
+    <a href="#mlbeauty">Estética</a>
+    <a href="#sapataria">Retalho</a>
+    <a href="#dualarte">Construção</a>
+    <a href="index.html#contacto" class="cta">Diagnóstico grátis →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="topo">
+  <div class="wrap">
+    <span class="eyebrow">Portfólio · Pacific Chaos Studio</span>
+    <div class="hero-top">
+      <h1>Pacific<br><span class="lime">Chaos</span></h1>
+      <p class="hero-intro">Conteúdo estratégico, anúncios medidos e fotografia para negócios locais. <b>Um sistema, não peças soltas</b> — e isto é o que sai dele.</p>
+    </div>
+    <div class="disc">
+      <span class="on">Social Media</span><span class="dash">/</span>
+      <span class="on">Paid Ads</span><span class="dash">/</span>
+      <span class="on">Photography</span>
+    </div>
+  </div>
+</header>
+
+<!-- ITACHI -->
+<section class="client" id="itachi">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">01</span><h2>Itachi Sushi</h2><span class="meta">Sushi Bar &middot; Porto</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/itachi-1.jpeg"></div><div class="tile" data-bg="portfolio/itachi-2.jpeg"></div><div class="tile" data-bg="portfolio/itachi-3.jpeg"></div><div class="tile" data-bg="portfolio/itachi-4.jpeg"></div><div class="tile" data-bg="portfolio/itachi-5.jpeg"></div><div class="tile" data-bg="portfolio/itachi-6.jpeg"></div><div class="tile" data-bg="portfolio/itachi-7.jpeg"></div><div class="tile" data-bg="portfolio/itachi-8.jpeg"></div><div class="tile" data-bg="portfolio/itachi-9.jpeg"></div><div class="tile" data-bg="portfolio/itachi-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- AKIBA -->
+<section class="client" id="akiba">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">02</span><h2>Akiba Ramen</h2><span class="meta">Ramen &middot; Aveiro</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/akiba-1.jpeg"></div><div class="tile" data-bg="portfolio/akiba-2.jpeg"></div><div class="tile" data-bg="portfolio/akiba-3.jpeg"></div><div class="tile" data-bg="portfolio/akiba-4.jpeg"></div><div class="tile" data-bg="portfolio/akiba-5.jpeg"></div><div class="tile" data-bg="portfolio/akiba-6.jpeg"></div><div class="tile" data-bg="portfolio/akiba-7.jpeg"></div><div class="tile" data-bg="portfolio/akiba-8.jpeg"></div><div class="tile" data-bg="portfolio/akiba-9.jpeg"></div><div class="tile" data-bg="portfolio/akiba-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MLBEAUTY -->
+<section class="client" id="mlbeauty">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">03</span><h2>ML Beauty</h2><span class="meta">Estética &amp; Wellness</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/mlbeauty-1.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-2.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-3.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-4.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-5.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-6.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-7.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-8.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-9.jpeg"></div><div class="tile" data-bg="portfolio/mlbeauty-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BARBEARIA -->
+<section class="client" id="barbearia">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">04</span><h2>Barbearia 32</h2><span class="meta">Barbearia</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/barbearia-1.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-2.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-3.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-4.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-5.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-6.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-7.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-8.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-9.jpeg"></div><div class="tile" data-bg="portfolio/barbearia-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAPATARIA -->
+<section class="client" id="sapataria">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">05</span><h2>Sapataria AV.</h2><span class="meta">Calçado &amp; Retalho</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/sapataria-1.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-2.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-3.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-4.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-5.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-6.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-7.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-8.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-9.jpeg"></div><div class="tile" data-bg="portfolio/sapataria-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIRADIA -->
+<section class="client" id="tiradia">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">06</span><h2>Tiradia</h2><span class="meta">Marca</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/tiradia-1.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-2.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-3.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-4.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-5.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-6.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-7.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-8.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-9.jpeg"></div><div class="tile" data-bg="portfolio/tiradia-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DUALARTE -->
+<section class="client" id="dualarte">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">07</span><h2>Dualarte</h2><span class="meta">Construção &middot; Porto</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/dualarte-1.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-2.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-3.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-4.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-5.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-6.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-7.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-8.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-9.jpeg"></div><div class="tile" data-bg="portfolio/dualarte-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE -->
+<!-- NAGOMI -->
+<section class="client" id="nagomi">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">08</span><h2>Nagomi Sushi</h2><span class="meta">Rodízio &middot; Póvoa de Varzim</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/nagomi-1.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-2.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-3.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-4.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-5.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-6.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-7.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-8.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-9.jpeg"></div><div class="tile" data-bg="portfolio/nagomi-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- KUMO -->
+<section class="client" id="kumo">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">09</span><h2>Kumo Sushi</h2><span class="meta">Sushi AYCE &middot; Rio Tinto</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/kumo-1.jpeg"></div><div class="tile" data-bg="portfolio/kumo-2.jpeg"></div><div class="tile" data-bg="portfolio/kumo-3.jpeg"></div><div class="tile" data-bg="portfolio/kumo-4.jpeg"></div><div class="tile" data-bg="portfolio/kumo-5.jpeg"></div><div class="tile" data-bg="portfolio/kumo-6.jpeg"></div><div class="tile" data-bg="portfolio/kumo-7.jpeg"></div><div class="tile" data-bg="portfolio/kumo-8.jpeg"></div><div class="tile" data-bg="portfolio/kumo-9.jpeg"></div><div class="tile" data-bg="portfolio/kumo-10.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<section class="client" id="more">
+  <div class="wrap">
+    <div class="client-head"><span class="idx">+</span><h2>More Work</h2><span class="meta">E muito mais</span></div>
+    <div class="grid">
+      <div class="tile" data-bg="portfolio/more-1.jpeg"></div><div class="tile" data-bg="portfolio/more-2.jpeg"></div><div class="tile" data-bg="portfolio/more-3.jpeg"></div><div class="tile" data-bg="portfolio/more-4.jpeg"></div><div class="tile" data-bg="portfolio/more-5.jpeg"></div><div class="tile" data-bg="portfolio/more-6.jpeg"></div><div class="tile" data-bg="portfolio/more-7.jpeg"></div><div class="tile" data-bg="portfolio/more-8.jpeg"></div><div class="tile" data-bg="portfolio/more-9.jpeg"></div><div class="tile" data-bg="portfolio/more-10.jpeg"></div><div class="tile" data-bg="portfolio/more-11.jpeg"></div><div class="tile" data-bg="portfolio/more-12.jpeg"></div><div class="tile" data-bg="portfolio/more-13.jpeg"></div><div class="tile" data-bg="portfolio/more-14.jpeg"></div><div class="tile" data-bg="portfolio/more-15.jpeg"></div><div class="tile" data-bg="portfolio/more-16.jpeg"></div><div class="tile" data-bg="portfolio/more-17.jpeg"></div><div class="tile" data-bg="portfolio/more-18.jpeg"></div><div class="tile" data-bg="portfolio/more-19.jpeg"></div><div class="tile" data-bg="portfolio/more-20.jpeg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section class="touch" id="contacto">
+  <div class="wrap">
+    <div class="k">Vamos trabalhar juntos</div>
+    <h2>Get in <span class="lime">touch</span></h2>
+    <div class="links">
+      <a class="solid" href="https://wa.me/351914816370?text=Ol%C3%A1!%20Vi%20o%20vosso%20portf%C3%B3lio." target="_blank" rel="noopener">WhatsApp →</a>
+      <a href="index.html#contacto">Diagnóstico grátis</a>
+      <a href="index.html">pacificchaosstudio.com</a>
+    </div>
+    <div class="foot-tag"><b>Pacific Chaos Studio</b> — Não gerimos redes. Criamos clientes.</div>
+  </div>
+</section>
+
+<a href="https://wa.me/351914816370" class="wa-float" title="Falar connosco no WhatsApp" aria-label="Falar connosco no WhatsApp" target="_blank" rel="noopener"><span aria-hidden="true">&#128172;</span></a>
+
+<script>
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);});
+
+// menu mobile (hamburguer)
+var navToggle=nav.querySelector('.nav-toggle');
+if(navToggle){
+  navToggle.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded',open?'true':'false');
+    navToggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+  });
+  nav.querySelectorAll('.mobile-menu a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('open');navToggle.setAttribute('aria-expanded','false');});
+  });
+}
+// lazy-load das fotos do portfolio (carrega so quando perto do viewport)
+var lazyImg=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target,u=t.getAttribute('data-bg');if(u){t.style.backgroundImage="url('"+u+"')";t.removeAttribute('data-bg');}lazyImg.unobserve(t);}});},{rootMargin:'500px 0px'});
+document.querySelectorAll('.tile[data-bg]').forEach(function(el){lazyImg.observe(el);});
+document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(typeof fbq!=='undefined')fbq('track','Contact');
+    if(typeof gtag!=='undefined')gtag('event','contact',{event_category:'whatsapp'});
+  });
+});
+</script>
+</body>
+</html>
